@@ -7,7 +7,7 @@ const fakedata = {"Tokyo":{"LocalObservationDateTime":"2020-09-23T02:16:00+09:00
     const favoriteCities = []
     let weatherInfo = localStorage.getItem('weatherInfo')
     weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {};
-    weatherInfo = JSON.parse(weatherInfo)
+    // weatherInfo = JSON.parse(weatherInfo)
 
     console.log(typeof(weatherInfo))
     console.log(typeof(fakedata))
@@ -15,9 +15,9 @@ const fakedata = {"Tokyo":{"LocalObservationDateTime":"2020-09-23T02:16:00+09:00
     for (const [key, value] of Object.entries(weatherInfo)) {
         console.log(key)
         console.log(value)
-        const temp = value.Temperature.Metric.Value
+        const temp = value[0].Temperature.Metric.Value
         favoriteCities.push(
-            <FavoriteCard key={key} cityName={key} cityWeatherInfo={value} temp={temp} />
+            <FavoriteCard key={key} cityName={key} cityWeatherInfo={value[0]} temp={temp} />
         )
     }
 

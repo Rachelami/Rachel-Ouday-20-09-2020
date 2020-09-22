@@ -162,7 +162,7 @@ const HomePage = ({ searchString }) => {
     const [presentFahrenheit, setPresentFahrenheit] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
 
-    const apiKey = 'AlkaZaIDhoRfxRAafUr2F9GIPNMNqwAB'
+    const apiKey = 'MFonYLP9zc4I9GNhprYMJvG98AAYY5cv'
 
     useEffect(() => {
         if (searchString.length >= 1) {
