@@ -61,7 +61,7 @@ console.log(presentFahrenheit)
             {/* {cityContext && */}
             <div className="favorite-city-details-card">
                 <div className="favorite-city-details-image-continer">
-                    <img src={cityContext.IsDayTime? '../img/day.gif' : '../img/night.gif'} className="day" />
+                    <img src={cityContext.IsDayTime? '../img/day.gif' : '../img/night.gif'} className="day-night" />
                     <img src={isFavorite ? `../images/yellow-star.png` : `../images/star.png`} className="star" onClick={() => favorite()} />
                 </div>
                 <div className="favorite-city-details-header">
