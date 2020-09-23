@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import WeatherStrip from './WeatherStrip'
 import Toast from '../Toast'
 import { Form } from 'react-bootstrap';
+import { CityContext } from '../CityContext'
 
 const HomePage = ({ searchString }) => {
     const [allCitiesInfo, setAllCitiesInfo] = useState([])
     const [presentFahrenheit, setPresentFahrenheit] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const [cityContext, setCityContext] = React.useContext(CityContext)
 
     const apiKey = 'XGMzt1wUSdbEJBAC8EEyVVAqCb4C0SxX'
 
@@ -15,6 +17,11 @@ const HomePage = ({ searchString }) => {
             getCities(searchString)
         }
     }, [searchString])
+
+    useEffect(() => {
+        console.log("cityContext")
+        console.log(cityContext)
+    }, [cityContext])
 
     const getCities = async (userInput) => {
         try {
