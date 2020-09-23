@@ -10,15 +10,19 @@ const Search = (props) => {
 
     const handleChange = (event) => {
         setCityContext('')
+        if (verifyInput(event.target.value)) {
         setInput(event.target.value)
+        }else {
+            setErrorMessage('Invalid Character')
+        }
     }
 
     useEffect(() => {
-        if (verifyInput(input)) {
+        // if (verifyInput(input)) {
             props.specifySearch(input)
-        } else {
-            setErrorMessage('Invalid Character')
-        }
+        // } else {
+        //     setErrorMessage('Invalid Character')
+        // }
     }, [input])
 
 
