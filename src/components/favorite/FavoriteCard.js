@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import {CityContext} from '../CityContext'
+import { CityContext } from '../CityContext'
 
 const FavoriteCard = ({ cityName, cityWeatherInfo, temp }) => {
     const [isFavorite, setIsFavorite] = useState(true)
@@ -15,8 +15,12 @@ const FavoriteCard = ({ cityName, cityWeatherInfo, temp }) => {
 
     const goToMainPage = () => {
         // localStorage.setItem("weatherForcast", `${cityName}`);
-        setCityContext(cityName)
+        setCityContext(cityWeatherInfo)
     }
+
+    useEffect(() => {
+        setCityContext('')
+    }, [])
 
     useEffect(() => {
         if (!isFavorite) {

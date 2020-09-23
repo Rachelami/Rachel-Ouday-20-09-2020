@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import WeatherStrip from './WeatherStrip'
+import FavoriteCityDetails from '../favorite/FavoriteCityDetails'
 import Toast from '../Toast'
 import { Form } from 'react-bootstrap';
 import { CityContext } from '../CityContext'
+import { ApiContext } from '../ApiContext'
 
 const HomePage = ({ searchString }) => {
     const [allCitiesInfo, setAllCitiesInfo] = useState([])
     const [presentFahrenheit, setPresentFahrenheit] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
     const [cityContext, setCityContext] = React.useContext(CityContext)
+    const [apiContext, setApiContext] = React.useContext(ApiContext)
 
-    const apiKey = 'XGMzt1wUSdbEJBAC8EEyVVAqCb4C0SxX'
+
+    useEffect(() => {
+        setApiContext('nA4CTP7B3DGRdAmtJzqAgsMJabvICW6b')
+    }, [])
 
     useEffect(() => {
         if (searchString.length >= 1) {
@@ -18,15 +24,11 @@ const HomePage = ({ searchString }) => {
         }
     }, [searchString])
 
-    useEffect(() => {
-        console.log("cityContext")
-        console.log(cityContext)
-    }, [cityContext])
-
     const getCities = async (userInput) => {
         try {
+            console.log("fetch getCities in home page")
             const cities = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete'
-            const query = `?apikey=${apiKey}&q=${userInput}`
+            const query = `?apikey=${apiContext}&q=${userInput}`
             const response = await fetch(cities + query)
             const data = await response.json()
 
@@ -37,21 +39,22 @@ const HomePage = ({ searchString }) => {
 
             setAllCitiesInfo(allCitiesCurrentWeather)
         } catch (err) {
-            setErrorMessage('cannot fetch because Api limitation')
+            setErrorMessage('Cannot fetch because Api limitation')
         }
     }
 
     const getCurrentLocation = async (locationKey, locationName) => {
+        console.log("fetch getCurrentLocatio in home page")
         try {
             const currentLocation = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}`
-            const query = `?apikey=${apiKey}&language=en-us`
+            const query = `?apikey=${apiContext}&language=en-us`
             const response = await fetch(currentLocation + query)
             const data = await response.json()
-            data.cityName = locationName;
-            data.locationKey = locationKey;
+            data[0].cityName = locationName;
+            data[0].locationKey = locationKey;
             return data
         } catch (err) {
-            setErrorMessage('cannot fetch because Api limitation')
+            setErrorMessage('Cannot fetch because Api limitation')
         }
     }
 
@@ -61,6 +64,8 @@ const HomePage = ({ searchString }) => {
 
     return (
         <>
+            {/* {!cityContext &&
+                <> */}
             <Form>
                 <Form.Check
                     type="switch"
@@ -70,16 +75,26 @@ const HomePage = ({ searchString }) => {
                 />
             </Form>
 
-            <div className="location-card">
-                {console.log(allCitiesInfo)}
-                {allCitiesInfo.map((cityWeatherInfo) => (
-                    <WeatherStrip
-                        key={cityWeatherInfo.locationKey}
-                        cityWeatherInfo={cityWeatherInfo}
-                        presentFahrenheit={presentFahrenheit}
-                        apiKey={apiKey} />
-                ))}
-            </div>
+            {/* {(allCitiesInfo && !cityContext) && */}
+            {!cityContext &&
+                <div className="location-card">
+                    {console.log(allCitiesInfo)}
+                    {allCitiesInfo.map((cityWeatherInfo) => (
+                        <>
+                            {cityWeatherInfo &&
+                                <WeatherStrip
+                                    key={cityWeatherInfo[0].locationKey}
+                                    cityWeatherInfo={cityWeatherInfo[0]}
+                                    presentFahrenheit={presentFahrenheit}
+                                    apiKey={apiContext} />
+                            }
+                        </>
+                    ))}
+                </div>
+            }
+            {/* </>
+            } */}
+            {cityContext && <FavoriteCityDetails presentFahrenheit={presentFahrenheit} />}
             {errorMessage && <Toast error={errorMessage} resetError={setErrorMessage} />}
         </>
     )

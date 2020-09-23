@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Button, FormControl } from 'react-bootstrap';
 import Toast from '../Toast'
+import { CityContext } from '../CityContext'
 
 const Search = (props) => {
     const [input, setInput] = useState('tel aviv')
     const [errorMessage, setErrorMessage] = useState('')
+    const [cityContext, setCityContext] = React.useContext(CityContext)
 
     const handleChange = (event) => {
+        setCityContext('')
         setInput(event.target.value)
     }
 
@@ -14,9 +17,14 @@ const Search = (props) => {
         if (verifyInput(input)) {
             props.specifySearch(input)
         } else {
-            setErrorMessage('invalid character')
+            setErrorMessage('Invalid Character')
         }
     }, [input])
+
+
+    // useEffect(() => {
+    //     setInput(cityContext.cityName)
+    // }, [cityContext])
 
     const verifyInput = (input) => {
         const acceptedCharacters = /^[A-Za-z\s]+$/

@@ -22,7 +22,7 @@ const WeatherStrip = ({ cityWeatherInfo, apiKey, presentFahrenheit }) => {
             setFiveDaysWeather(data)
 
         } catch (err) {
-            setErrorMessage('cannot fetch because Api limitation')
+            setErrorMessage('Cannot fetch because Api limitation')
         }
     }
 
@@ -55,12 +55,12 @@ const WeatherStrip = ({ cityWeatherInfo, apiKey, presentFahrenheit }) => {
                     <div className="weather-info-container">
                         < div > {cityWeatherInfo.cityName}</ div>
                         <div className="flex">
-                            <img src={`../img/icons/${cityWeatherInfo[0].WeatherIcon}.svg`} className="temp-logos" />
+                            <img src={`../img/icons/${cityWeatherInfo.WeatherIcon}.svg`} className="temp-logos" />
                             <div>{cityWeatherInfo.WeatherText}</div>
                         </div>
                         {presentFahrenheit ?
-                            <div>{cityWeatherInfo[0].Temperature.Imperial.Value}&deg;F</div> :
-                            <div>{cityWeatherInfo[0].Temperature.Metric.Value}&deg;C</div>
+                            <div>{Math.round(cityWeatherInfo.Temperature.Imperial.Value)}&deg;F</div> :
+                            <div>{Math.round(cityWeatherInfo.Temperature.Metric.Value)}&deg;C</div>
                         }
                     </div>
 
