@@ -125,8 +125,12 @@
         flex-direction: column;
         align-items: center
     }
-    
-
+    .temp-logos {
+        height: 109px;
+        position: absolute;
+        left: 0px;
+        top: -9px;
+    }
 
     /* .weather-strip {
         width: 80vw;
