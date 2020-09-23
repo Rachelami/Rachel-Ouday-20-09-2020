@@ -12,17 +12,19 @@ const FavoriteCityDetails = ({presentFahrenheit}) => {
     const [errorMessage, setErrorMessage] = useState('')
     const [isFavorite, setIsFavorite] = useState(true)
 
-
+console.log(presentFahrenheit)
 
     useEffect(() => {
         fiveDaysForecasts()
-    }, [apiContext])
+    }, [presentFahrenheit, apiContext])
+    
+    // useEffect(() => {
+    //     fiveDaysForecasts()
+    // }, [apiContext])
 
     const fiveDaysForecasts = async () => {
         try {
-            console.log("fetch fiveDaysForecasts in favoriteCity")
-            console.log(cityContext.locationKey)
-            console.log(apiContext)
+            
             const forecasts = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityContext.locationKey}`
             // const query = `?apikey=${apiContext}&q=en-us`
             const query = `?apikey=${apiContext}&q=en-us&metric=${!presentFahrenheit}`
@@ -42,7 +44,6 @@ const FavoriteCityDetails = ({presentFahrenheit}) => {
         if (isFavorite) {
             let weatherInfo = localStorage.getItem('weatherInfo')
             weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {};
-            console.log(cityContext)
             weatherInfo[`${cityContext.cityName}`] = cityContext;
             localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo));
         }

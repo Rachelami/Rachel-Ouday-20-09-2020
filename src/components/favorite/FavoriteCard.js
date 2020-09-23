@@ -7,8 +7,6 @@ const FavoriteCard = ({ cityName, cityWeatherInfo, temp }) => {
     const [isFavorite, setIsFavorite] = useState(true)
     const [cityContext, setCityContext] = React.useContext(CityContext)
 
-    console.log(cityWeatherInfo)
-
     const favorite = () => {
         setIsFavorite(isFavorite ? false : true)
     }

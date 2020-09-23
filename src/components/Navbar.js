@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Form } from 'react-bootstrap';
-// import {CityContext} from './CityContext'
+import {CityContext} from './CityContext'
 
 const TopNavbar = () => {
     const [isFavoritePageActive, setIsFavoritePageActive] = useState(false)
-    // const [cityContext, setCityContext] = React.useContext(CityContext)
+    const [cityContext, setCityContext] = React.useContext(CityContext)
 
     useEffect(() => {
         console.log('change the nav')
@@ -16,19 +16,20 @@ const TopNavbar = () => {
         //     setIsFavoritePageActive(false)
         }
     },[isFavoritePageActive])
-    // useEffect(() => {
-    //     console.log('change the nav')
-    //     console.log(window.location.href.includes("favorite"))
-    //     // setIsFavoritePageActive(false)
-    //     if (window.location.href.includes("favorite")) {
-    //         setIsFavoritePageActive(true)
-    //     } else {
-    //         setIsFavoritePageActive(false)
-    //     }
-    // },[cityContext])
+    useEffect(() => {
+        console.log('change the nav with cityContext')
+        console.log(window.location.href.includes("favorite"))
+        // setIsFavoritePageActive(false)
+        if (window.location.href.includes("favorite")) {
+            setIsFavoritePageActive(true)
+        } else {
+            setIsFavoritePageActive(false)
+        }
+    },[cityContext])
 
     return (
         <Navbar bg="light" variant="light">
+        {console.log(cityContext)}
             <Nav className="mr-auto">
                 <Nav.Link href="/" className={isFavoritePageActive ? null : "active"}>
                     <img src={isFavoritePageActive ? `../images/house.png` : `../images/red-house.png`} className="nav-logos"/>

@@ -9,8 +9,6 @@ const Favorite = () => {
 
 
     for (const [key, value] of Object.entries(weatherInfo)) {
-        console.log(key)
-        console.log(value)
         const temp = Math.round(value.Temperature.Metric.Value)
         favoriteCities.push(
             <FavoriteCard key={key} cityName={key} cityWeatherInfo={value} temp={temp} />

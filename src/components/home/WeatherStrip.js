@@ -12,10 +12,9 @@ const WeatherStrip = ({ cityWeatherInfo, apiKey, presentFahrenheit }) => {
 
     const fiveDaysForecasts = async () => {
         try {
-            setExpended(expended ? false : true)
+            // setExpended(expended ? false : true)
             const forecasts = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}`
             const query = `?apikey=${apiKey}&q=en-us&metric=${!presentFahrenheit}`
-            console.log(query)
             const response = await fetch(forecasts + query)
             const data = await response.json()
 
@@ -26,6 +25,16 @@ const WeatherStrip = ({ cityWeatherInfo, apiKey, presentFahrenheit }) => {
         }
     }
 
+    useEffect(() => {
+        if (expended) {
+            fiveDaysForecasts()
+        }
+    }, [expended, presentFahrenheit])
+
+    const hendleOnClick = () => {
+        setExpended(expended ? false : true)
+    }
+
     const favorite = () => {
         setIsFavorite(isFavorite ? false : true)
     }
@@ -34,7 +43,6 @@ const WeatherStrip = ({ cityWeatherInfo, apiKey, presentFahrenheit }) => {
         if (isFavorite) {
             let weatherInfo = localStorage.getItem('weatherInfo')
             weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {};
-            console.log(cityWeatherInfo)
             weatherInfo[`${cityWeatherInfo.cityName}`] = cityWeatherInfo;
             localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo));
         }
@@ -50,7 +58,7 @@ const WeatherStrip = ({ cityWeatherInfo, apiKey, presentFahrenheit }) => {
     return (
         <>
             <div className="weather-strip-container">
-                <button className="weather-strip" onClick={() => fiveDaysForecasts()} >
+                <button className="weather-strip" onClick={() => hendleOnClick()} >
 
                     <div className="weather-info-container">
                         < div > {cityWeatherInfo.cityName}</ div>
