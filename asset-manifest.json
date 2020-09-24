@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Rachel-Ouday-20-09-2020/static/css/main.e0bbd5ac.chunk.css",
+    "main.js": "/Rachel-Ouday-20-09-2020/static/js/main.cfb8da7c.chunk.js",
+    "main.js.map": "/Rachel-Ouday-20-09-2020/static/js/main.cfb8da7c.chunk.js.map",
+    "runtime-main.js": "/Rachel-Ouday-20-09-2020/static/js/runtime-main.962aba27.js",
+    "runtime-main.js.map": "/Rachel-Ouday-20-09-2020/static/js/runtime-main.962aba27.js.map",
+    "static/css/2.41fc952c.chunk.css": "/Rachel-Ouday-20-09-2020/static/css/2.41fc952c.chunk.css",
+    "static/js/2.f38c17c1.chunk.js": "/Rachel-Ouday-20-09-2020/static/js/2.f38c17c1.chunk.js",
+    "static/js/2.f38c17c1.chunk.js.map": "/Rachel-Ouday-20-09-2020/static/js/2.f38c17c1.chunk.js.map",
+    "index.html": "/Rachel-Ouday-20-09-2020/index.html",
+    "precache-manifest.323f18aac6e4d98ab57856604d24c2d3.js": "/Rachel-Ouday-20-09-2020/precache-manifest.323f18aac6e4d98ab57856604d24c2d3.js",
+    "service-worker.js": "/Rachel-Ouday-20-09-2020/service-worker.js",
+    "static/css/2.41fc952c.chunk.css.map": "/Rachel-Ouday-20-09-2020/static/css/2.41fc952c.chunk.css.map",
+    "static/css/main.e0bbd5ac.chunk.css.map": "/Rachel-Ouday-20-09-2020/static/css/main.e0bbd5ac.chunk.css.map",
+    "static/js/2.f38c17c1.chunk.js.LICENSE.txt": "/Rachel-Ouday-20-09-2020/static/js/2.f38c17c1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.962aba27.js",
+    "static/css/2.41fc952c.chunk.css",
+    "static/js/2.f38c17c1.chunk.js",
+    "static/css/main.e0bbd5ac.chunk.css",
+    "static/js/main.cfb8da7c.chunk.js"
+  ]
+}
