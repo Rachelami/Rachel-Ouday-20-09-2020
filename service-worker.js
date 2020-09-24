@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Rachel-Ouday-20-09-2020/precache-manifest.323f18aac6e4d98ab57856604d24c2d3.js"
+  "/Rachel-Ouday-20-09-2020/precache-manifest.4b86ea986c68a2c94236b565d2463295.js"
 );
 
 self.addEventListener('message', (event) => {
