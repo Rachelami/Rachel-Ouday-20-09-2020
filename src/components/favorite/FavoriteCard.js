@@ -31,7 +31,7 @@ const FavoriteCard = ({ cityName, cityWeatherInfo }) => {
     return (
         <>
             {isFavorite &&
-                <Card className="card-container">
+                <Card>
                     <img src={isFavorite ? process.env.PUBLIC_URL + '/images/yellow-star.png' : process.env.PUBLIC_URL + '/images/star.png'} className="favorite-logo-in-card" onClick={() => favorite()} />
                     <Card.Body>
                         <Card.Title>{cityName}</Card.Title>

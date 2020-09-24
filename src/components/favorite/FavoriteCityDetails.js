@@ -71,8 +71,6 @@ const FavoriteCityDetails = ({ presentFahrenheit }) => {
                 </div>
             </div>
             {errorMessage && <Toast error={errorMessage} resetError={setErrorMessage} />}
-
-            {/* } */}
         </>
     )
 }

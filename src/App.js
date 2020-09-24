@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Switch, Route } from "react-router-dom"
-import './style.css'
+import './style/mainStyle.css'
+import './style/favorite.css'
+import './style/homePage.css'
 import HomePage from './components/home/HomePage'
 import TopNavbar from './components/Navbar.js'
 import Favorite from './components/favorite/Favorite'
