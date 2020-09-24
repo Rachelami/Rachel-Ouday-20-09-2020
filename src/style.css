@@ -1,0 +1,280 @@
+.App {
+    background-image: url('https://i.pinimg.com/originals/8b/7f/bc/8b7fbc2e623720393ad7ffa7e4896eac.gif');
+    height: 100vh;
+    text-align: center;
+}
+
+.location-card {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.five-days-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.five-days {
+    margin: 20px;
+    border: 1px solid;
+    padding: 10px 
+}
+
+.nav-logos{
+    height: 20px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.weather-strip-container {
+    position: relative;
+}
+
+.weather-strip {
+    width: 70vw;
+    /* height: 150px; */
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: floralwhite;
+    box-shadow: 4px 4px 5px #aaaaaa;
+
+	/* background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg"); */
+	/* background-image: url("https://static.vecteezy.com/system/resources/previews/000/600/546/non_2x/abstract-night-blue-sky-with-stars-cosmos-background-vector.jpg"); */
+	/* background-image: url("https://i.pinimg.com/originals/67/0b/c0/670bc0f15088200dc7bd31ff37daa245.gif"); */
+
+}
+
+.weather-strip:focus {
+    outline: none;
+}
+
+@media (max-width: 970px) {
+    body .one-day-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border: 1px solid black;
+        border-radius: 20px;
+        /* width: 18%; */
+        padding: 0px 5px;
+        justify-content: space-between;
+        background-color: moccasin;
+        margin: 2px;
+    }
+    .five-days-container {
+        flex-direction: column
+    }
+}
+
+@media (max-width: 670px) {
+    .weather-strip {
+        width: 80vw;
+    }
+    .location-card {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .five-days-container {
+        flex-direction: column;
+    }
+    .day-night {
+        display: none;
+    }
+
+}
+
+@media (min-width: 670px) {
+    .search-field {
+        width: 50vw !important;
+    }
+    .magnifying-glass {
+        right: 27% !important;
+    }
+}
+
+.temp-logos {
+    height: 28px;
+}
+
+.weather-info-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.five-days-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.one-day-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 18%;
+    padding: 10px 5px;
+    background-color: moccasin;
+}
+
+@media (max-width:500px) {
+    .weather-info-container {
+        /* display: flex; */
+        flex-direction: column;
+        align-items: center
+    }
+    .temp-logos {
+        height: 109px;
+        position: absolute;
+        left: 0px;
+        top: -9px;
+    }
+
+    /* .weather-strip {
+        width: 80vw;
+    } */
+}
+
+.min-max-temp {
+    display: flex;
+}
+
+.flex {
+    display: flex;
+}
+
+.one-day-temp-logo {
+    height: 50px;
+}
+
+.favorite-logo {
+    height: 20px;
+    position: absolute;
+    right: -25px;
+    top: 12px;
+}
+
+.favorite-logo-in-card {
+    height: 20px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    z-index: 1;
+}
+
+.favorite-temp-logos {
+    height: 60px;
+}
+
+.favorite-container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+    /* .favorite-container {
+        display: block
+    } */
+    .card {
+        width: 100% !important;
+        /* margin: 5px 0px !important; */
+    }
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 0px 10px;
+    position: relative;
+}
+
+.search-field {
+    /* margin: 0px !important; */
+    border-radius: 20px !important;
+    /* width: 30vw !important; */
+}
+
+.input-button {
+    border-radius: 0px 20px 20px 0px !important;
+}
+
+.herolo-logo {
+    height: 35px;
+    /* height: 43px; */
+}
+
+.card {
+    margin: 5px;
+    width: 200px;
+    border-radius: 20px !important;
+    box-shadow: 4px 4px 5px #aaaaaa;
+}
+
+.Toastify__toast {
+    border-radius: 20px !important; 
+ }
+
+ .favorite-city-details-card {
+     display: flex;
+     flex-direction: column;
+     border-radius: 20px;
+     border: 1px solid black;
+     padding: 10px;
+     margin: 10px 10%;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+     background-color: white;
+ }
+
+ .favorite-city-details-image-continer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    padding: 20px;
+    top: 0px;
+ }
+
+ .day-night {
+    width: 100px;
+    height: auto;
+    border-radius: 20px;
+    border: 3px solid black;
+}
+
+.star {
+    height: 20px;
+    right: 20px;
+    position: absolute;
+}
+
+.favorite-city-details-header {
+    display: flex;
+    align-items: center;
+}
+
+.temp-favorite-logo {
+    height: 60px;
+}
+
+.switch-to-fahrenheit-continer {
+    display: flex;
+    justify-content: center;
+}
+
+.magnifying-glass {
+    position: absolute;
+    right: 7%;
+    top: 10px;
+    height: 20px;
+}
