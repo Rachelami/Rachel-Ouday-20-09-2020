@@ -36,12 +36,12 @@ const Search = (props) => {
         setInput('')
     }
 
-    useEffect(() => {
-        if (localStorage.getItem("weatherForcast")) {
-            setInput(localStorage.getItem("weatherForcast"))
-            localStorage.removeItem("weatherForcast")
-        }
-    })
+    // useEffect(() => {
+    //     if (localStorage.getItem("weatherForcast")) {
+    //         setInput(localStorage.getItem("weatherForcast"))
+    //         localStorage.removeItem("weatherForcast")
+    //     }
+    // })
 
     return (
         <>

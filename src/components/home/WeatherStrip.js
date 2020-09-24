@@ -32,15 +32,15 @@ const WeatherStrip = ({ cityWeather, presentFahrenheit }) => {
 
     useEffect(() => {
         if (isFavorite) {
-            let weatherInfo = localStorage.getItem('weatherInfo')
-            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
-            weatherInfo[`${cityWeather.cityName}`] = cityWeather
-            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo))
+            let storedFavoriteCities = localStorage.getItem('storedFavoriteCities')
+            storedFavoriteCities = storedFavoriteCities ? JSON.parse(storedFavoriteCities) : {}
+            storedFavoriteCities[`${cityWeather.cityName}`] = cityWeather
+            localStorage.setItem('storedFavoriteCities', JSON.stringify(storedFavoriteCities))
         } else {
-            let weatherInfo = localStorage.getItem('weatherInfo')
-            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
-            delete weatherInfo[`${cityWeather.cityName}`]
-            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo))
+            let storedFavoriteCities = localStorage.getItem('storedFavoriteCities')
+            storedFavoriteCities = storedFavoriteCities ? JSON.parse(storedFavoriteCities) : {}
+            delete storedFavoriteCities[`${cityWeather.cityName}`]
+            localStorage.setItem('storedFavoriteCities', JSON.stringify(storedFavoriteCities))
         }
     }, [isFavorite])
 

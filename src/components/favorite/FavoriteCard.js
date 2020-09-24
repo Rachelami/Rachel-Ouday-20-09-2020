@@ -21,10 +21,10 @@ const FavoriteCard = ({ cityName, cityWeatherInfo }) => {
 
     useEffect(() => {
         if (!isFavorite) {
-            let weatherInfo = localStorage.getItem('weatherInfo')
-            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
-            delete weatherInfo[`${cityName}`]
-            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo))
+            let storedFavoriteCities = localStorage.getItem('storedFavoriteCities')
+            storedFavoriteCities = storedFavoriteCities ? JSON.parse(storedFavoriteCities) : {}
+            delete storedFavoriteCities[`${cityName}`]
+            localStorage.setItem('storedFavoriteCities', JSON.stringify(storedFavoriteCities))
         }
     })
 

@@ -3,10 +3,10 @@ import FavoriteCard from './FavoriteCard'
 
 const Favorite = () => {
     const favoriteCities = []
-    let weatherInfo = localStorage.getItem('weatherInfo')
-    weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
+    let storedFavoriteCities = localStorage.getItem('storedFavoriteCities')
+    storedFavoriteCities = storedFavoriteCities ? JSON.parse(storedFavoriteCities) : {}
 
-    for (const [key, value] of Object.entries(weatherInfo)) {
+    for (const [key, value] of Object.entries(storedFavoriteCities)) {
         favoriteCities.push(
             <FavoriteCard key={key} cityName={key} cityWeatherInfo={value} />
         )

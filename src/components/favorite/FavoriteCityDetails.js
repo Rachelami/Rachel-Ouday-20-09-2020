@@ -33,16 +33,16 @@ const FavoriteCityDetails = ({presentFahrenheit}) => {
 
     useEffect(() => {
         if (isFavorite) {
-            let weatherInfo = localStorage.getItem('weatherInfo')
-            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
-            weatherInfo[`${cityContext.cityName}`] = cityContext
-            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo))
+            let storedFavoriteCities = localStorage.getItem('storedFavoriteCities')
+            storedFavoriteCities = storedFavoriteCities ? JSON.parse(storedFavoriteCities) : {}
+            storedFavoriteCities[`${cityContext.cityName}`] = cityContext
+            localStorage.setItem('storedFavoriteCities', JSON.stringify(storedFavoriteCities))
         }
         else {
-            let weatherInfo = localStorage.getItem('weatherInfo')
-            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
-            delete weatherInfo[`${cityContext.cityName}`]
-            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo))
+            let storedFavoriteCities = localStorage.getItem('storedFavoriteCities')
+            storedFavoriteCities = storedFavoriteCities ? JSON.parse(storedFavoriteCities) : {}
+            delete storedFavoriteCities[`${cityContext.cityName}`]
+            localStorage.setItem('storedFavoriteCities', JSON.stringify(storedFavoriteCities))
         }
     }, [isFavorite])
 
