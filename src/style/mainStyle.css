@@ -85,9 +85,9 @@
         align-items: center
     }
     .temp-logos {
-        height: 109px;
+        height: 109px !important;
         position: absolute;
-        left: 0px;
+        left: -6px;
         top: -9px;
     }
 }
