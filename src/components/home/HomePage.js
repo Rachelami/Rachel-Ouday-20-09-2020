@@ -15,7 +15,7 @@ const HomePage = ({ searchString }) => {
 
 
     useEffect(() => {
-        setApiContext('SKRPX8CYRhJ5KL6XtmAJYIBDSf1GJY3U')
+        setApiContext('uiXdFbSNYBFw59NfNAWxKON6hF7NMpTQ')
     }, [])
 
     useEffect(() => {
@@ -68,12 +68,11 @@ const HomePage = ({ searchString }) => {
                 <Form.Check
                     type="switch"
                     id="custom-switch"
-                    label="Switch To Fahrenheit"
+                    label={`Switch ${presentFahrenheit? "Back To Celsius" : "To Fahrenheit"}`}
                     onChange={switchToFahrenheit}
                 />
             </Form>
 
-            {/* {(allCitiesInfo && !cityContext) && */}
             {!cityContext &&
                 <div className="location-card">
                     {allCitiesWeather.map((cityWeather) => (

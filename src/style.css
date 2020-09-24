@@ -35,18 +35,12 @@
 
 .weather-strip {
     width: 70vw;
-    /* height: 150px; */
     border: 1px solid black;
     border-radius: 20px;
     padding: 5px 10px;
     margin: 5px;
     background-color: floralwhite;
     box-shadow: 4px 4px 5px #aaaaaa;
-
-	/* background-image: url("https://thumbs.dreamstime.com/b/high-detail-full-vector-light-parchment-very-detailed-design-old-paper-56493820.jpg"); */
-	/* background-image: url("https://static.vecteezy.com/system/resources/previews/000/600/546/non_2x/abstract-night-blue-sky-with-stars-cosmos-background-vector.jpg"); */
-	/* background-image: url("https://i.pinimg.com/originals/67/0b/c0/670bc0f15088200dc7bd31ff37daa245.gif"); */
-
 }
 
 .weather-strip:focus {
@@ -61,7 +55,6 @@
         align-items: center;
         border: 1px solid black;
         border-radius: 20px;
-        /* width: 18%; */
         padding: 0px 5px;
         justify-content: space-between;
         background-color: moccasin;
@@ -125,7 +118,6 @@
 
 @media (max-width:500px) {
     .weather-info-container {
-        /* display: flex; */
         flex-direction: column;
         align-items: center
     }
@@ -135,10 +127,6 @@
         left: 0px;
         top: -9px;
     }
-
-    /* .weather-strip {
-        width: 80vw;
-    } */
 }
 
 .min-max-temp {
@@ -180,12 +168,8 @@
 }
 
 @media (max-width: 500px) {
-    /* .favorite-container {
-        display: block
-    } */
     .card {
         width: 100% !important;
-        /* margin: 5px 0px !important; */
     }
 }
 
@@ -198,9 +182,7 @@
 }
 
 .search-field {
-    /* margin: 0px !important; */
     border-radius: 20px !important;
-    /* width: 30vw !important; */
 }
 
 .input-button {
@@ -209,7 +191,6 @@
 
 .herolo-logo {
     height: 35px;
-    /* height: 43px; */
 }
 
 .card {
@@ -270,6 +251,7 @@
 .switch-to-fahrenheit-continer {
     display: flex;
     justify-content: center;
+    padding-top: 8px;
 }
 
 .magnifying-glass {
