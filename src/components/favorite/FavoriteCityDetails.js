@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import DailyWeather from '../home/DailyWeather'
+import React, { useEffect, useState } from 'react'
 import { ApiContext } from '../ApiContext'
-
 import { CityContext } from '../CityContext'
+import DailyWeather from '../home/DailyWeather'
 import Toast from '../Toast'
 
 const FavoriteCityDetails = ({presentFahrenheit}) => {
@@ -12,28 +11,20 @@ const FavoriteCityDetails = ({presentFahrenheit}) => {
     const [errorMessage, setErrorMessage] = useState('')
     const [isFavorite, setIsFavorite] = useState(true)
 
-console.log(presentFahrenheit)
-
     useEffect(() => {
         fiveDaysForecasts()
     }, [presentFahrenheit, apiContext])
-    
-    // useEffect(() => {
-    //     fiveDaysForecasts()
-    // }, [apiContext])
 
     const fiveDaysForecasts = async () => {
         try {
-            
             const forecasts = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityContext.locationKey}`
-            // const query = `?apikey=${apiContext}&q=en-us`
             const query = `?apikey=${apiContext}&q=en-us&metric=${!presentFahrenheit}`
             const response = await fetch(forecasts + query)
             const data = await response.json()
+
             setFiveDaysWeather(data)
-        } catch (err) {
-            // setErrorMessage('Error Occurred, Please Try Again')
-        }
+
+        } catch (err){}
     }
 
     const favorite = () => {
@@ -43,22 +34,20 @@ console.log(presentFahrenheit)
     useEffect(() => {
         if (isFavorite) {
             let weatherInfo = localStorage.getItem('weatherInfo')
-            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {};
-            weatherInfo[`${cityContext.cityName}`] = cityContext;
-            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo));
+            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
+            weatherInfo[`${cityContext.cityName}`] = cityContext
+            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo))
         }
-
         else {
-            let weatherInfo = localStorage.getItem('weatherInfo') //neccecery?
-            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}; //neccecery?
+            let weatherInfo = localStorage.getItem('weatherInfo')
+            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
             delete weatherInfo[`${cityContext.cityName}`]
-            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo));
+            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo))
         }
     }, [isFavorite])
 
     return (
         <>
-            {/* {cityContext && */}
             <div className="favorite-city-details-card">
                 <div className="favorite-city-details-image-continer">
                     <img src={cityContext.IsDayTime? '../img/day.gif' : '../img/night.gif'} className="day-night" />
@@ -69,17 +58,14 @@ console.log(presentFahrenheit)
                 <img src={`../img/icons/${cityContext.WeatherIcon}.svg`} className="temp-favorite-logo" />
                 </div>
 
-                {/* <h4>{cityContext.Temperature.Metric.Value}&deg;C</h4> */}
-
                 {presentFahrenheit ?
                             <h4>{Math.round(cityContext.Temperature.Imperial.Value)}&deg;F</h4> :
                             <h4>{Math.round(cityContext.Temperature.Metric.Value)}&deg;C</h4>
                         }
 
                 < div className="five-days-container" >
-                    {(fiveDaysWeather.length != 0) && fiveDaysWeather.DailyForecasts.map((daily) => (
-                        // <DailyWeather key={daily.Date} dailyForecasts={daily} />
-                        <DailyWeather key={daily.Date} dailyForecasts={daily} presentFahrenheit={presentFahrenheit} />
+                    {(fiveDaysWeather.length != 0) && fiveDaysWeather.DailyForecasts.map((dailyForecast) => (
+                        <DailyWeather key={dailyForecast.Date} dailyForecast={dailyForecast} presentFahrenheit={presentFahrenheit} />
                     ))
                     }
                 </div>

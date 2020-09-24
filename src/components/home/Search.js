@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Button, FormControl } from 'react-bootstrap';
-import Toast from '../Toast'
+import React, { useState, useEffect } from 'react'
+import { Button, FormControl } from 'react-bootstrap'
 import { CityContext } from '../CityContext'
+import Toast from '../Toast'
 
 const Search = (props) => {
     const [input, setInput] = useState('tel aviv')
@@ -12,31 +12,22 @@ const Search = (props) => {
         setCityContext('')
         if (verifyInput(event.target.value)) {
         setInput(event.target.value)
-        }else {
+        } else {
             setErrorMessage('Invalid Character')
         }
     }
 
     useEffect(() => {
-        // if (verifyInput(input)) {
             props.specifySearch(input)
-        // } else {
-        //     setErrorMessage('Invalid Character')
-        // }
     }, [input])
-
-
-    // useEffect(() => {
-    //     setInput(cityContext.cityName)
-    // }, [cityContext])
 
     const verifyInput = (input) => {
         const acceptedCharacters = /^[A-Za-z\s]+$/
         if (input.match(acceptedCharacters)) {
-            return true;
+            return true
         }
         else {
-            return false;
+            return false
         }
     }
 
@@ -56,7 +47,7 @@ const Search = (props) => {
         <>
             <div className="search-container">
                 <FormControl type="text" placeholder="Search" value={input} className="search-field" onChange={handleChange} />
-                <Button variant="outline-info" type="submit" className="input-button" onSubmit={handleSubmit}>Search</Button>
+                <Button variant="outline-info" type="submit" className="input-button" onClick={handleSubmit}>Search</Button>
             </div>
             {errorMessage && <Toast error={errorMessage} resetError={setErrorMessage} />}
         </>

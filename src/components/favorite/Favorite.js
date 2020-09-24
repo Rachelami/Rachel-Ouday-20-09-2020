@@ -1,17 +1,14 @@
-import React from 'react';
+import React from 'react'
 import FavoriteCard from './FavoriteCard'
-
 
 const Favorite = () => {
     const favoriteCities = []
     let weatherInfo = localStorage.getItem('weatherInfo')
-    weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {};
-
+    weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
 
     for (const [key, value] of Object.entries(weatherInfo)) {
-        const temp = Math.round(value.Temperature.Metric.Value)
         favoriteCities.push(
-            <FavoriteCard key={key} cityName={key} cityWeatherInfo={value} temp={temp} />
+            <FavoriteCard key={key} cityName={key} cityWeatherInfo={value} />
         )
     }
 

@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Card } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { CityContext } from '../CityContext'
 
-const FavoriteCard = ({ cityName, cityWeatherInfo, temp }) => {
+const FavoriteCard = ({ cityName, cityWeatherInfo }) => {
     const [isFavorite, setIsFavorite] = useState(true)
     const [cityContext, setCityContext] = React.useContext(CityContext)
 
@@ -12,7 +12,6 @@ const FavoriteCard = ({ cityName, cityWeatherInfo, temp }) => {
     }
 
     const goToMainPage = () => {
-        // localStorage.setItem("weatherForcast", `${cityName}`);
         setCityContext(cityWeatherInfo)
     }
 
@@ -23,9 +22,9 @@ const FavoriteCard = ({ cityName, cityWeatherInfo, temp }) => {
     useEffect(() => {
         if (!isFavorite) {
             let weatherInfo = localStorage.getItem('weatherInfo')
-            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {};
+            weatherInfo = weatherInfo ? JSON.parse(weatherInfo) : {}
             delete weatherInfo[`${cityName}`]
-            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo));
+            localStorage.setItem('weatherInfo', JSON.stringify(weatherInfo))
         }
     })
 
@@ -37,11 +36,8 @@ const FavoriteCard = ({ cityName, cityWeatherInfo, temp }) => {
                     <Card.Body>
                         <Card.Title>{cityName}</Card.Title>
                         <Card.Img variant="top" src={`../img/icons/${cityWeatherInfo.WeatherIcon}.svg`} className="favorite-temp-logos" />
-                        <Card.Text>{temp}&deg;C</Card.Text>
-                        {/* <Button variant="primary" onClick={() => goToMainPage()}>Go</Button> */}
-                        <span className="input-group-btn" onClick={() => goToMainPage()}>
-                            <Link to="/">See Forcast</Link>
-                        </span>
+                        <Card.Text>{Math.round(cityWeatherInfo.Temperature.Metric.Value)}&deg;C</Card.Text>
+                        <Link to="/" onClick={() => goToMainPage()}>See Forcast</Link>
                     </Card.Body>
                 </Card >
             }

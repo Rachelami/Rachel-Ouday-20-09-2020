@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+import { Form } from 'react-bootstrap'
+import { CityContext } from '../CityContext'
+import { ApiContext } from '../ApiContext'
 import WeatherStrip from './WeatherStrip'
 import FavoriteCityDetails from '../favorite/FavoriteCityDetails'
 import Toast from '../Toast'
-import { Form } from 'react-bootstrap';
-import { CityContext } from '../CityContext'
-import { ApiContext } from '../ApiContext'
 
 const HomePage = ({ searchString }) => {
-    const [allCitiesInfo, setAllCitiesInfo] = useState([])
+    const [allCitiesWeather, setAllCitiesWeather] = useState([])
     const [presentFahrenheit, setPresentFahrenheit] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
     const [cityContext, setCityContext] = React.useContext(CityContext)
@@ -15,7 +15,7 @@ const HomePage = ({ searchString }) => {
 
 
     useEffect(() => {
-        setApiContext('CvZYeOX2o5kgDVCO8hIfESPXZdFJSrGt')
+        setApiContext('Tjg4Y93NooJwZK0wzWGmXxsoxzPX6AqQ')
     }, [])
 
     useEffect(() => {
@@ -32,25 +32,27 @@ const HomePage = ({ searchString }) => {
             const data = await response.json()
 
             let allCitiesCurrentWeather = await Promise.all(data.map(async city => {
-                return await getCurrentLocation(city.Key, city.LocalizedName)
+                return await getCurrentWeather(city.Key, city.LocalizedName)
 
             }))
 
-            setAllCitiesInfo(allCitiesCurrentWeather)
+            setAllCitiesWeather(allCitiesCurrentWeather)
+
         } catch (err) {
             setErrorMessage('Cannot fetch because Api limitation')
         }
     }
 
-    const getCurrentLocation = async (locationKey, locationName) => {
+    const getCurrentWeather = async (locationKey, locationName) => {
         try {
             const currentLocation = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}`
             const query = `?apikey=${apiContext}&language=en-us`
             const response = await fetch(currentLocation + query)
             const data = await response.json()
-            data[0].cityName = locationName;
-            data[0].locationKey = locationKey;
+            data[0].cityName = locationName
+            data[0].locationKey = locationKey
             return data
+
         } catch (err) {
             setErrorMessage('Cannot fetch because Api limitation')
         }
@@ -62,9 +64,7 @@ const HomePage = ({ searchString }) => {
 
     return (
         <>
-            {/* {!cityContext &&
-                <> */}
-            <Form>
+            <Form className="switch-to-fahrenheit-continer">
                 <Form.Check
                     type="switch"
                     id="custom-switch"
@@ -76,12 +76,12 @@ const HomePage = ({ searchString }) => {
             {/* {(allCitiesInfo && !cityContext) && */}
             {!cityContext &&
                 <div className="location-card">
-                    {allCitiesInfo.map((cityWeatherInfo) => (
+                    {allCitiesWeather.map((cityWeather) => (
                         <>
-                            {cityWeatherInfo &&
+                            {cityWeather &&
                                 <WeatherStrip
-                                    key={cityWeatherInfo[0].locationKey}
-                                    cityWeatherInfo={cityWeatherInfo[0]}
+                                    key={cityWeather[0].locationKey}
+                                    cityWeather={cityWeather[0]}
                                     presentFahrenheit={presentFahrenheit}
                                     apiKey={apiContext} />
                             }
@@ -89,8 +89,6 @@ const HomePage = ({ searchString }) => {
                     ))}
                 </div>
             }
-            {/* </>
-            } */}
             {cityContext && <FavoriteCityDetails presentFahrenheit={presentFahrenheit} />}
             {errorMessage && <Toast error={errorMessage} resetError={setErrorMessage} />}
         </>
