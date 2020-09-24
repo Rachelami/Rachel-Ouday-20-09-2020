@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Button, FormControl } from 'react-bootstrap'
+import { FormControl } from 'react-bootstrap'
 import { CityContext } from '../CityContext'
 import Toast from '../Toast'
 
 const Search = (props) => {
     const [input, setInput] = useState('tel aviv')
     const [errorMessage, setErrorMessage] = useState('')
-    const [cityContext, setCityContext] = React.useContext(CityContext)
+    const [, setCityContext] = React.useContext(CityContext)
 
     const handleChange = (event) => {
         setCityContext('')

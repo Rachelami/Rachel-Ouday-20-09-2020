@@ -10,12 +10,12 @@ const HomePage = ({ searchString }) => {
     const [allCitiesWeather, setAllCitiesWeather] = useState([])
     const [presentFahrenheit, setPresentFahrenheit] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
-    const [cityContext, setCityContext] = React.useContext(CityContext)
+    const [cityContext] = React.useContext(CityContext)
     const [apiContext, setApiContext] = React.useContext(ApiContext)
 
 
     useEffect(() => {
-        setApiContext('HtrGDEbt0CUDSXzCFLzd4fHKzv0kNZYO')
+        setApiContext('JrWoAqeJWGuorE7bA81AGxA2iyuYBeAY')
     }, [])
 
     useEffect(() => {

@@ -5,9 +5,9 @@ import DailyWeather from '../home/DailyWeather'
 import Toast from '../Toast'
 
 const FavoriteCityDetails = ({ presentFahrenheit }) => {
-    const [cityContext, setCityContext] = React.useContext(CityContext)
+    const [cityContext] = React.useContext(CityContext)
     const [fiveDaysWeather, setFiveDaysWeather] = useState([])
-    const [apiContext, setApiContext] = React.useContext(ApiContext)
+    const [apiContext] = React.useContext(ApiContext)
     const [errorMessage, setErrorMessage] = useState('')
     const [isFavorite, setIsFavorite] = useState(true)
 

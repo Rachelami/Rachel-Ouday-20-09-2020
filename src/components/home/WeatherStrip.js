@@ -8,7 +8,7 @@ const WeatherStrip = ({ cityWeather, presentFahrenheit }) => {
     const [expended, setExpended] = useState(false)
     const [isFavorite, setIsFavorite] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
-    const [apiContext, setApiContext] = React.useContext(ApiContext)
+    const [apiContext] = React.useContext(ApiContext)
 
     const fiveDaysForecasts = async () => {
         try {
