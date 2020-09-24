@@ -28,7 +28,7 @@ const TopNavbar = () => {
             </Nav>
 
             <Form inline>
-                <img className="herolo-logo" src="../images/herolo.png" />
+                <img className="herolo-logo" src={process.env.PUBLIC_URL + "/images/herolo.png"} />
             </Form>
         </Navbar>
     )
