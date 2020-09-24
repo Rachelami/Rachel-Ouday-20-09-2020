@@ -1,6 +1,6 @@
 .App {
     background-image: url('https://i.pinimg.com/originals/8b/7f/bc/8b7fbc2e623720393ad7ffa7e4896eac.gif');
-    height: 100vh;
+    min-height: 100%;
     text-align: center;
 }
 
