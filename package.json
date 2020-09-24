@@ -1,5 +1,5 @@
 {
-  "home": "https://Rachelami.github.io/Rachel-Ouday-20-09-2020",
+  "homepage": "https://Rachelami.github.io/Rachel-Ouday-20-09-2020/",
   "name": "weather",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +16,7 @@
     "react-toastify": "^6.0.8"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
