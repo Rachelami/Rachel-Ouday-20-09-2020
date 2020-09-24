@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7a8439c686286351277feefea59dbb76",
+    "revision": "6d00e0e6daab75faee895a1a1c32b2db",
     "url": "/Rachel-Ouday-20-09-2020/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Rachel-Ouday-20-09-2020/static/css/2.41fc952c.chunk.css"
   },
   {
-    "revision": "55d88e5daae80c846b87",
+    "revision": "7f7829b61dea9b576397",
     "url": "/Rachel-Ouday-20-09-2020/static/css/main.e0bbd5ac.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Rachel-Ouday-20-09-2020/static/js/2.f38c17c1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "55d88e5daae80c846b87",
-    "url": "/Rachel-Ouday-20-09-2020/static/js/main.9b5b1659.chunk.js"
+    "revision": "7f7829b61dea9b576397",
+    "url": "/Rachel-Ouday-20-09-2020/static/js/main.cfb8da7c.chunk.js"
   },
   {
     "revision": "4359e6e705e0df582dd8",
