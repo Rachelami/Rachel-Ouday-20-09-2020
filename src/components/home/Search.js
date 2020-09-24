@@ -35,7 +35,7 @@ const Search = (props) => {
         <>
             <div className="search-container">
                 <FormControl type="text" placeholder="Search" value={input} className="search-field" onChange={handleChange} />
-                {/* <Button variant="outline-info" type="submit" className="input-button" onClick={handleSubmit}>Search</Button> */}
+                <img src={'../img/magnifying-glass.png'} className="magnifying-glass" />
             </div>
             {errorMessage && <Toast error={errorMessage} resetError={setErrorMessage} />}
         </>

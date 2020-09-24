@@ -93,6 +93,9 @@
     .search-field {
         width: 50vw !important;
     }
+    .magnifying-glass {
+        right: 27% !important;
+    }
 }
 
 .temp-logos {
@@ -191,6 +194,7 @@
     justify-content: center;
     margin-top: 20px;
     padding: 0px 10px;
+    position: relative;
 }
 
 .search-field {
@@ -268,3 +272,9 @@
     justify-content: center;
 }
 
+.magnifying-glass {
+    position: absolute;
+    right: 7%;
+    top: 10px;
+    height: 20px;
+}
