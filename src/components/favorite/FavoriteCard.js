@@ -32,10 +32,10 @@ const FavoriteCard = ({ cityName, cityWeatherInfo }) => {
         <>
             {isFavorite &&
                 <Card className="card-container">
-                    <img src={isFavorite ? `../images/yellow-star.png` : `../images/star.png`} className="favorite-logo-in-card" onClick={() => favorite()} />
+                    <img src={isFavorite ? process.env.PUBLIC_URL + '/images/yellow-star.png' : process.env.PUBLIC_URL + '/images/star.png'} className="favorite-logo-in-card" onClick={() => favorite()} />
                     <Card.Body>
                         <Card.Title>{cityName}</Card.Title>
-                        <Card.Img variant="top" src={`../images/weather-icons/${cityWeatherInfo.WeatherIcon}.svg`} className="favorite-temp-logos" />
+                        <Card.Img variant="top" src={process.env.PUBLIC_URL + `/images/weather-icons/${cityWeatherInfo.WeatherIcon}.svg`} className="favorite-temp-logos" />
                         <Card.Text>{Math.round(cityWeatherInfo.Temperature.Metric.Value)}&deg;C</Card.Text>
                         <Link to="/" onClick={() => goToMainPage()}>See Forcast</Link>
                     </Card.Body>
