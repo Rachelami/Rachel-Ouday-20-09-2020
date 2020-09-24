@@ -12,7 +12,7 @@ const WeatherStrip = ({ cityWeather, presentFahrenheit }) => {
 
     const fiveDaysForecasts = async () => {
         try {
-            const forecasts = `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityWeather.locationKey}`
+            const forecasts = `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityWeather.locationKey}`
             const query = `?apikey=${apiContext}&q=en-us&metric=${!presentFahrenheit}`
             const response = await fetch(forecasts + query)
             const data = await response.json()

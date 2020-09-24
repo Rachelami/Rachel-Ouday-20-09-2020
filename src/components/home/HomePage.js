@@ -15,7 +15,7 @@ const HomePage = ({ searchString }) => {
 
 
     useEffect(() => {
-        setApiContext('umTk83hy2JPA8iJCGlPlJRu7ZEWC0XYJ')
+        setApiContext('SKRPX8CYRhJ5KL6XtmAJYIBDSf1GJY3U')
     }, [])
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const HomePage = ({ searchString }) => {
 
     const getCities = async (userInput) => {
         try {
-            const cities = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete'
+            const cities = 'https://dataservice.accuweather.com/locations/v1/cities/autocomplete'
             const query = `?apikey=${apiContext}&q=${userInput}`
             const response = await fetch(cities + query)
             const data = await response.json()
@@ -45,7 +45,7 @@ const HomePage = ({ searchString }) => {
 
     const getCurrentWeather = async (locationKey, locationName) => {
         try {
-            const currentLocation = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}`
+            const currentLocation = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}`
             const query = `?apikey=${apiContext}&language=en-us`
             const response = await fetch(currentLocation + query)
             const data = await response.json()
