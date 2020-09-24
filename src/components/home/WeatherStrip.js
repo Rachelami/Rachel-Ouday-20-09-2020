@@ -59,7 +59,7 @@ const WeatherStrip = ({ cityWeather, presentFahrenheit }) => {
                     <div className="weather-info-container">
                         < div>{cityWeather.cityName}</ div>
                         <div className="flex">
-                            <img src={`../img/icons/${cityWeather.WeatherIcon}.svg`} className="temp-logos" />
+                            <img src={`../images/weather-icons/${cityWeather.WeatherIcon}.svg`} className="temp-logos" />
                             <div>{cityWeather.WeatherText}</div>
                         </div>
                         {presentFahrenheit ?

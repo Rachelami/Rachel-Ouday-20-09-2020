@@ -28,7 +28,7 @@ const TopNavbar = () => {
             </Nav>
 
             <Form inline>
-                <img className="herolo-logo" src="../img/herolo.png" />
+                <img className="herolo-logo" src="../images/herolo.png" />
             </Form>
         </Navbar>
     )

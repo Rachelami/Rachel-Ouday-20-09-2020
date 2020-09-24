@@ -4,7 +4,7 @@ import { CityContext } from '../CityContext'
 import DailyWeather from '../home/DailyWeather'
 import Toast from '../Toast'
 
-const FavoriteCityDetails = ({presentFahrenheit}) => {
+const FavoriteCityDetails = ({ presentFahrenheit }) => {
     const [cityContext, setCityContext] = React.useContext(CityContext)
     const [fiveDaysWeather, setFiveDaysWeather] = useState([])
     const [apiContext, setApiContext] = React.useContext(ApiContext)
@@ -24,7 +24,7 @@ const FavoriteCityDetails = ({presentFahrenheit}) => {
 
             setFiveDaysWeather(data)
 
-        } catch (err){}
+        } catch (err) { }
     }
 
     const favorite = () => {
@@ -50,18 +50,18 @@ const FavoriteCityDetails = ({presentFahrenheit}) => {
         <>
             <div className="favorite-city-details-card">
                 <div className="favorite-city-details-image-continer">
-                    <img src={cityContext.IsDayTime? '../img/day.gif' : '../img/night.gif'} className="day-night" />
+                    <img src={cityContext.IsDayTime ? '../images/day.gif' : '../images/night.gif'} className="day-night" />
                     <img src={isFavorite ? `../images/yellow-star.png` : `../images/star.png`} className="star" onClick={() => favorite()} />
                 </div>
                 <div className="favorite-city-details-header">
-                <h2>{cityContext.cityName}</h2>
-                <img src={`../img/icons/${cityContext.WeatherIcon}.svg`} className="temp-favorite-logo" />
+                    <h2>{cityContext.cityName}</h2>
+                    <img src={`../images/weather-icons/${cityContext.WeatherIcon}.svg`} className="temp-favorite-logo" />
                 </div>
 
                 {presentFahrenheit ?
-                            <h4>{Math.round(cityContext.Temperature.Imperial.Value)}&deg;F</h4> :
-                            <h4>{Math.round(cityContext.Temperature.Metric.Value)}&deg;C</h4>
-                        }
+                    <h4>{Math.round(cityContext.Temperature.Imperial.Value)}&deg;F</h4> :
+                    <h4>{Math.round(cityContext.Temperature.Metric.Value)}&deg;C</h4>
+                }
 
                 < div className="five-days-container" >
                     {(fiveDaysWeather.length != 0) && fiveDaysWeather.DailyForecasts.map((dailyForecast) => (
