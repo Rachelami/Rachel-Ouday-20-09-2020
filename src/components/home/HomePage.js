@@ -15,7 +15,7 @@ const HomePage = ({ searchString }) => {
 
 
     useEffect(() => {
-        setApiContext('IgtaUDwF0kV63s30hp2BLBMSQA4rwtRe')
+        setApiContext('CvZYeOX2o5kgDVCO8hIfESPXZdFJSrGt')
     }, [])
 
     useEffect(() => {
@@ -77,7 +77,7 @@ const HomePage = ({ searchString }) => {
             {!cityContext &&
                 <div className="location-card">
                     {allCitiesInfo.map((cityWeatherInfo) => (
-                        <div key={cityWeatherInfo[0].locationKey}>
+                        <>
                             {cityWeatherInfo &&
                                 <WeatherStrip
                                     key={cityWeatherInfo[0].locationKey}
@@ -85,7 +85,7 @@ const HomePage = ({ searchString }) => {
                                     presentFahrenheit={presentFahrenheit}
                                     apiKey={apiContext} />
                             }
-                        </div>
+                        </>
                     ))}
                 </div>
             }

@@ -6,26 +6,24 @@ const TopNavbar = () => {
     const [isFavoritePageActive, setIsFavoritePageActive] = useState(false)
     const [cityContext, setCityContext] = React.useContext(CityContext)
 
+    // useEffect(() => {
+    //     console.log('change the nav')
+    //     console.log(window.location.href.includes("favorite"))
+    //     // setIsFavoritePageActive(false)
+    //     if (window.location.href.includes("favorite")) {
+    //         setIsFavoritePageActive(true)
+    //     // } else {
+    //     //     setIsFavoritePageActive(false)
+    //     }
+    // },[isFavoritePageActive])
+    
     useEffect(() => {
-        console.log('change the nav')
-        console.log(window.location.href.includes("favorite"))
-        // setIsFavoritePageActive(false)
-        if (window.location.href.includes("favorite")) {
-            setIsFavoritePageActive(true)
-        // } else {
-        //     setIsFavoritePageActive(false)
-        }
-    },[isFavoritePageActive])
-    useEffect(() => {
-        console.log('change the nav with cityContext')
-        console.log(window.location.href.includes("favorite"))
-        // setIsFavoritePageActive(false)
         if (window.location.href.includes("favorite")) {
             setIsFavoritePageActive(true)
         } else {
             setIsFavoritePageActive(false)
         }
-    },[cityContext])
+    })
 
     return (
         <Navbar bg="light" variant="light">
