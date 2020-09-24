@@ -59,7 +59,7 @@ const WeatherStrip = ({ cityWeather, presentFahrenheit }) => {
                     <div className="weather-info-container">
                         < div>{cityWeather.cityName}</ div>
                         <div className="flex">
-                            <img src={`../images/weather-icons/${cityWeather.WeatherIcon}.svg`} className="temp-logos" />
+                            <img src={process.env.PUBLIC_URL + `/images/weather-icons/${cityWeather.WeatherIcon}.svg`} className="temp-logos" />
                             <div>{cityWeather.WeatherText}</div>
                         </div>
                         {presentFahrenheit ?
@@ -75,7 +75,7 @@ const WeatherStrip = ({ cityWeather, presentFahrenheit }) => {
                         }
                     </div>
                 </div>
-                <img src={isFavorite ? `../images/yellow-star.png` : `../images/star.png`} className="favorite-logo" onClick={() => favorite()} />
+                <img src={isFavorite ? process.env.PUBLIC_URL + '/images/yellow-star.png' : process.env.PUBLIC_URL + '/images/star.png'} className="favorite-logo" onClick={() => favorite()} />
             </div>
             {errorMessage && <Toast error={errorMessage} resetError={setErrorMessage} />}
         </>

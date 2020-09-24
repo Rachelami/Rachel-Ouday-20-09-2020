@@ -50,12 +50,12 @@ const FavoriteCityDetails = ({ presentFahrenheit }) => {
         <>
             <div className="favorite-city-details-card">
                 <div className="favorite-city-details-image-continer">
-                    <img src={cityContext.IsDayTime ? '../images/day.gif' : '../images/night.gif'} className="day-night" />
-                    <img src={isFavorite ? `../images/yellow-star.png` : `../images/star.png`} className="star" onClick={() => favorite()} />
+                    <img src={cityContext.IsDayTime ? process.env.PUBLIC_URL + '/images/day.gif' : process.env.PUBLIC_URL + '/images/night.gif'} className="day-night" />
+                    <img src={isFavorite ? process.env.PUBLIC_URL + '/images/yellow-star.png' : process.env.PUBLIC_URL + '/images/star.png'} className="star" onClick={() => favorite()} />
                 </div>
                 <div className="favorite-city-details-header">
                     <h2>{cityContext.cityName}</h2>
-                    <img src={`../images/weather-icons/${cityContext.WeatherIcon}.svg`} className="temp-favorite-logo" />
+                    <img src={process.env.PUBLIC_URL + `/images/weather-icons/${cityContext.WeatherIcon}.svg`} className="temp-favorite-logo" />
                 </div>
 
                 {presentFahrenheit ?
