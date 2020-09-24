@@ -17,18 +17,18 @@ const TopNavbar = () => {
         <Navbar bg="light" variant="light">
             <Nav className="mr-auto">
                 <Nav.Link href="/" className={isFavoritePageActive ? null : "active"}>
-                    <img src={isFavoritePageActive ? `./images/house.png` : `./images/red-house.png`} className="nav-logos" />
+                    <img src={isFavoritePageActive ? `../images/house.png` : `../images/red-house.png`} className="nav-logos" />
                     Home
                 </Nav.Link>
 
                 <Nav.Link href="/favorite" className={isFavoritePageActive ? "active" : null}>
-                    <img src={isFavoritePageActive ? `./images/yellow-star.png` : `./images/star.png`} className="nav-logos" />
+                    <img src={isFavoritePageActive ? `../images/yellow-star.png` : `../images/star.png`} className="nav-logos" />
                 Favorite
                 </Nav.Link>
             </Nav>
 
             <Form inline>
-                <img className="herolo-logo" src="./images/herolo.png" />
+                <img className="herolo-logo" src="../images/herolo.png" />
             </Form>
         </Navbar>
     )
