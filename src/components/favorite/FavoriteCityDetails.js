@@ -46,6 +46,11 @@ const FavoriteCityDetails = ({ presentFahrenheit }) => {
         }
     }, [isFavorite])
 
+    const capitalize = (string) => {
+        if (typeof string !== 'string') return ''
+        return string.charAt(0).toUpperCase() + string.slice(1)
+      }
+      
     return (
         <>
             <div className="favorite-city-details-card">
@@ -54,7 +59,7 @@ const FavoriteCityDetails = ({ presentFahrenheit }) => {
                     <img src={isFavorite ? process.env.PUBLIC_URL + '/images/yellow-star.png' : process.env.PUBLIC_URL + '/images/star.png'} className="star" onClick={() => favorite()} />
                 </div>
                 <div className="favorite-city-details-header">
-                    <h2>{cityContext.cityName}</h2>
+                    <h2>{capitalize(cityContext.cityName)}</h2>
                     <img src={process.env.PUBLIC_URL + `/images/weather-icons/${cityContext.WeatherIcon}.svg`} className="temp-favorite-logo" />
                 </div>
 

@@ -52,15 +52,20 @@ const WeatherStrip = ({ cityWeather, presentFahrenheit }) => {
         setExpended(expended ? false : true)
     }
 
+    const capitalize = (string) => {
+        if (typeof string !== 'string') return ''
+        return string.charAt(0).toUpperCase() + string.slice(1)
+      }
+
     return (
         <>
             <div className="weather-strip-container">
                 <div className="weather-strip" onClick={() => hendleOnClick()} >
                     <div className="weather-info-container">
-                        < div>{cityWeather.cityName}</ div>
+                        < div>{capitalize(cityWeather.cityName)}</ div>
                         <div className="flex">
                             <img src={process.env.PUBLIC_URL + `/images/weather-icons/${cityWeather.WeatherIcon}.svg`} className="temp-logos" />
-                            <div>{cityWeather.WeatherText}</div>
+                            <div>{capitalize(cityWeather.WeatherText)}</div>
                         </div>
                         {presentFahrenheit ?
                             <div>{Math.round(cityWeather.Temperature.Imperial.Value)}&deg;F</div> :
